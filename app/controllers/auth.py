@@ -10,4 +10,4 @@ this is authenticate controller，it contains some functions:
 
 @app_route.route('/')
 def hello():
-    return "hello world,lucy"
+    return "hello world"

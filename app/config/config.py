@@ -9,3 +9,5 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     # 查询时会显示原始SQL语句
     SQLALCHEMY_ECHO = True
+
+    SECRET_KEY = '000000'

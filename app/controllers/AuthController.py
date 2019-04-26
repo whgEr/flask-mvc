@@ -1,22 +1,31 @@
-from . import app_route
-from flask import render_template,make_response,session
+from . import app_route, need_login
+from flask import render_template, make_response, session
 import gvcode
 from io import BytesIO
 
 '''
-this is authenticate controller，it contains some functions:
+this is authenticate controller，it contains functions as:
     login
     logout
     resetpassword
     captcha
 '''
 
-@app_route.route('/auth/login')
-def login():
-    return render_template('auth/login.html',captcha=session.get('image'))
 
-# graphic-verification-code [captcha]
-@app_route.route('/auth/captcha',methods=['GET'])
+@app_route.route('/auth/login/')
+def login():
+    return render_template('auth/login.html', captcha=session.get('image'))
+
+
+
+@app_route.route('/auth/logout/')
+@need_login
+def logout():
+    return "logout"
+
+
+# graphic-verification-code(gvcode) [or captcha]
+@app_route.route('/auth/captcha/', methods=['GET'])
 def captcha():
     s, v = gvcode.generate()
     buf = BytesIO()

@@ -55,5 +55,15 @@ flask-mvc
 ### 4.生产环境运行
 
 ```php
-waiting update
+nginx + Gunicorn + flask
+
+pip install gunicorn
+gunicorn -w 4 -b 127.0.0.1:5001 运行文件名称:Flask程序实例名
+```
+### 5.TODO
+
+```php
+用户认证
+数据迁移
+unit test
 ```

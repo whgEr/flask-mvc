@@ -12,7 +12,7 @@ this is authenticate controller，it contains functions as:
 '''
 
 
-@app_route.route('/auth/login/')
+@app_route.route('/')
 def login():
     return render_template('auth/login.html', captcha=session.get('image'))
 
